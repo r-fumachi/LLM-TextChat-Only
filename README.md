@@ -3,7 +3,7 @@
  - wsl -s Ubuntu (or Debian)
 
 Go to repo
-`cd /mnt/c/user/.../petalsQ`
+`cd /mnt/c/user/.../llm-textchat-only`
 
 #### Download dependencies
 - sudo apt update
