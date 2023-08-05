@@ -23,7 +23,7 @@ class PetalsModel:
                 if prompt == "":
                     break
                 prefix = f"Human: {prompt}\nFriendly AI:"
-                prefix = self.tokenizer(prefix, return_tensors="pt")["input_ids"].cuda()
+                prefix = self.tokenizer(prefix, return_tensors="pt")["input_ids"]
                 print("Friendly AI:", end="", flush=True)
 
                 while True:
@@ -32,8 +32,7 @@ class PetalsModel:
                     outputs = self.tokenizer.decode([self.fake_token, outputs[0, -1].item()])[1:]
 
                     # Now, let's print one new token at a time
-                    print(outputs, end="", flush=True)
-
+                    print(outputs.replace("s>", ""), end="", flush=True)
                     if "<\n>" in outputs:
                         break
                     prefix = None  # Prefix is passed only for the 1st token of the bot's response
