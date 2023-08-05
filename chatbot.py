@@ -14,7 +14,7 @@ class PetalsModel:
     @property
     def _model(self):
         m = AutoDistributedModelForCausalLM.from_pretrained(MODEL_NAME)
-        return m.cuda()
+        return m
 
     def text_session(self):
         with self.model.inference_session(max_length=512) as sess:
